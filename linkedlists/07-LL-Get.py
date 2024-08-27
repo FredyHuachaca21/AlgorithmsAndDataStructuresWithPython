@@ -34,11 +34,28 @@ class LinkedList:
 
     # Función para obtener un nodo
     def get(self, index):
+        """
+        Retorna el nodo en una posición específica de la lista enlazada.
+
+        Parámetros:
+        - index: La posición del nodo que se desea obtener en la lista enlazada.
+
+        Retorno:
+        - El nodo en la posición especificada si el índice es válido.
+        - None si el índice es inválido (menor que 0 o mayor o igual que la longitud de la lista).
+        """
+        # Verifica si el índice es inválido (menor que 0 o mayor o igual a la longitud de la lista)
         if index < 0 or index >= self.length:
-            return None
+            return None  # Retorna None si el índice es inválido
+
+        # Comienza desde el nodo cabeza (head) de la lista
         temp = self.head
+
+        # Recorre la lista desde la cabeza hasta el índice especificado
         for _ in range(index):
-            temp = temp.next
+            temp = temp.next  # Avanza al siguiente nodo
+
+        # Retorna el nodo en la posición especificada
         return temp
 
 
