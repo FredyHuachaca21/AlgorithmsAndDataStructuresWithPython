@@ -34,14 +34,34 @@ class LinkedList:
 
     # Función para eliminar el primer nodo de la lista
     def pop_first(self):
+        """
+        Elimina y retorna el primer nodo de la lista enlazada.
+
+        Retorno:
+        - El nodo eliminado si la lista no está vacía.
+        - None si la lista está vacía.
+        """
+        # Verifica si la lista está vacía (longitud igual a 0)
         if self.length == 0:
-            return None
+            return None  # Retorna None si la lista está vacía
+
+        # Guarda temporalmente el nodo cabeza (el primer nodo)
         temp = self.head
+
+        # Mueve la cabeza al siguiente nodo en la lista
         self.head = self.head.next
+
+        # Desconecta el nodo eliminado de la lista
         temp.next = None
+
+        # Decrementa la longitud de la lista en 1
         self.length -= 1
+
+        # Si la lista quedó vacía después de eliminar el primer nodo, ajusta la cola (tail) a None
         if self.length == 0:
             self.tail = None
+
+        # Retorna el nodo eliminado
         return temp
 
 
