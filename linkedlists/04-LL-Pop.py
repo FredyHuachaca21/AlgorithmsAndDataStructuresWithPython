@@ -34,19 +34,39 @@ class LinkedList:
 
     # Función para agregar un nodo
     def pop(self):
+        """
+        Elimina y retorna el último nodo de la lista enlazada.
+
+        Retorno:
+        - El nodo eliminado si la lista no está vacía.
+        - None si la lista está vacía.
+        """
+        # Verifica si la lista está vacía (longitud igual a 0)
         if self.length == 0:
-            return None
+            return None  # Retorna None si la lista está vacía
+
+        # Inicializa dos punteros: temp para recorrer la lista y pre para mantener el nodo anterior a temp
         temp = self.head
         pre = self.head
+
+        # Recorre la lista hasta llegar al último nodo (donde temp.next es None)
         while temp.next is not None:
-            pre = temp
-            temp = temp.next
+            pre = temp  # pre sigue a temp
+            temp = temp.next  # temp avanza al siguiente nodo
+
+        # Actualiza tail para que apunte al nodo pre, que será el nuevo último nodo
         self.tail = pre
-        self.tail.next = None
+        self.tail.next = None  # Desconecta el último nodo (temp) de la lista
+
+        # Decrementa la longitud de la lista en 1
         self.length -= 1
+
+        # Si la lista queda vacía después de la eliminación, ajusta head y tail a None
         if self.length == 0:
             self.head = None
             self.tail = None
+
+        # Retorna el nodo eliminado
         return temp
 
 
