@@ -34,14 +34,32 @@ class LinkedList:
 
     # Función para agregar un nodo al principio de la lista
     def prepend(self, value):
+        """
+        Inserta un nuevo nodo al principio de la lista enlazada.
+
+        Parámetros:
+        - value: El valor que se desea asignar al nuevo nodo.
+
+        Retorno:
+        - True para indicar que la operación de inserción fue exitosa.
+        """
+        # Crea un nuevo nodo con el valor proporcionado
         new_node = Node(value)
+
+        # Si la lista está vacía (head es None), establece tanto head como tail al nuevo nodo
         if self.head is None:
             self.head = new_node
             self.tail = new_node
         else:
+            # Si la lista no está vacía, enlaza el nuevo nodo al inicio de la lista
             new_node.next = self.head
+            # Actualiza head para que apunte al nuevo nodo
             self.head = new_node
+
+        # Incrementa la longitud de la lista en 1
         self.length += 1
+
+        # Retorna True para indicar que la operación fue exitosa
         return True
 
 
