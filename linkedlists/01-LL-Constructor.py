@@ -61,12 +61,27 @@ class LinkedList:
         self.length += 1
         return True
 
+    # Función para eliminar el primer nodo de la lista
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp
+
 
 my_linked_list = LinkedList(2)
-my_linked_list.append(3)
+my_linked_list.append(1)
 
-my_linked_list.prepend(1)
-
-my_linked_list.print_list()
+# (2) Items -> Return 2 Node
+print(my_linked_list.pop_first().value)
+# (1) Item -> Return 1 Node
+print(my_linked_list.pop_first().value)
+# None -> Return None
+print(my_linked_list.pop_first())
 
 
