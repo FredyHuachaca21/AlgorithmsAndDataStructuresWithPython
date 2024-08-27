@@ -1,22 +1,26 @@
 class Node:
+    # Constructor
     def __init__(self, value):
         self.value = value
         self.next = None
 
 
 class LinkedList:
+    # Constructor
     def __init__(self, value):
         new_node = Node(value)
         self.head = new_node
         self.tail = new_node
         self.length = 1
 
+    # Función para imprimir la lista
     def print_list(self):
         temp = self.head
         while temp is not None:
             print(temp.value)
             temp = temp.next
 
+    # Función para agregar un nodo al final de la lista
     def append(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -28,6 +32,7 @@ class LinkedList:
         self.length += 1
         return True
 
+    # Función para eliminar el último nodo de la lista
     def pop(self):
         if self.length == 0:
             return None
@@ -44,6 +49,7 @@ class LinkedList:
             self.tail = None
         return temp
 
+    # Función para agregar un nodo al principio de la lista
     def prepend(self, value):
         new_node = Node(value)
         if self.head is None:
