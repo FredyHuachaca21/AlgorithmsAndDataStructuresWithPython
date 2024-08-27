@@ -43,10 +43,27 @@ class LinkedList:
 
     # Función para cambiar el valor de un nodo
     def set(self, index, value):
+        """
+        Actualiza el valor de un nodo existente en una posición específica de la lista enlazada.
+
+        Parámetros:
+        - index: La posición en la lista enlazada donde se quiere actualizar el valor del nodo.
+        - value: El nuevo valor que se asignará al nodo en la posición especificada.
+
+        Retorno:
+        - True si la actualización fue exitosa.
+        - False si no se pudo realizar la actualización (por ejemplo, si el índice es inválido).
+        """
+        # Obtiene el nodo en la posición especificada usando el método get
         temp = self.get(index)
+
+        # Verifica si el nodo existe (temp no es None)
         if temp:
+            # Si el nodo existe, actualiza su valor con el valor proporcionado
             temp.value = value
-            return True
+            return True  # Retorna True indicando que la actualización fue exitosa
+
+        # Si el nodo no existe (temp es None), retorna False indicando que la actualización falló
         return False
 
 
