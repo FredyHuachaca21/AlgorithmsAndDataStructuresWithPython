@@ -53,20 +53,20 @@ class LinkedList:
             temp = temp.next
         return temp
 
-    def insert(self, value, index):
+    def insert(self, index, value):
         """
         Inserta un nuevo nodo con un valor específico en una posición determinada de la lista enlazada.
 
         Parámetros:
-        - value: El valor que se desea insertar en la lista enlazada.
         - index: La posición en la lista enlazada donde se quiere insertar el nuevo nodo.
+        - value: El valor que se desea insertar en la lista enlazada.
 
         Retorno:
         - True si la inserción fue exitosa.
         - False si la inserción falló debido a un índice inválido.
         """
         # Verifica si el índice proporcionado es inválido (menor que 0 o mayor o igual a la longitud de la lista)
-        if index < 0 or index >= self.length:
+        if index < 0 or index > self.length:
             return False
 
         # Si el índice es 0, inserta el valor al inicio de la lista usando el método prepend
@@ -97,18 +97,15 @@ class LinkedList:
 
 
 print('\nLista antes de insertar un nodo:')
-my_linked_list = LinkedList(0)
-my_linked_list.append(2)
+my_linked_list = LinkedList(1)
+my_linked_list.append(3)
 my_linked_list.print_list()
 
 print('\nLista después de insertar un nodo:')
-my_linked_list.insert(1, 1)
+my_linked_list.insert(1, 2)
 my_linked_list.print_list()
-
 
 print('\n======= Detalles de Linked List =========\n')
 print('Head:', my_linked_list.head.value)
 print('Tail:', my_linked_list.tail.value)
 print('Length:', my_linked_list.length)
-
-
